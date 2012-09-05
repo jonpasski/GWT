@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.zeroturnaround.com" xsi:schemaLocation="http://www.zeroturnaround.com http://www.zeroturnaround.com/alderaan/rebel-2_0.xsd">
+
+	<classpath>
+		<dir name="/Users/uttridgm/code/GWT/gwt-generic/target/gwt-generic-1.0-SNAPSHOT/WEB-INF/classes">
+		</dir>
+		<dir name="/Users/uttridgm/code/GWT/gwt-generic/src/main/webapp/WEB-INF/classes">
+		</dir>
+		<dir name="/Users/uttridgm/code/GWT/gwt-generic/target/test-classes">
+		</dir>
+	</classpath>
+
+	<web>
+		<link target="/">
+			<dir name="/Users/uttridgm/code/GWT/gwt-generic/target/m2e-wtp/web-resources">
+			</dir>
+		</link>
+		<link target="/">
+			<dir name="/Users/uttridgm/code/GWT/gwt-generic/src/main/webapp">
+			</dir>
+		</link>
+	</web>
+
+</application>
