@@ -22,16 +22,16 @@ public class GreetingServiceImpl extends RemoteServiceServlet implements
 
     String serverInfo = getServletContext().getServerInfo();
     String userAgent = getThreadLocalRequest().getHeader("User-Agent");
-    String exitVal;
+    String exitVal = "";
 
     // OS Command injection FTW!
     Runtime rt = Runtime.getRuntime();
     try {  
       Process proc = rt.exec(input);
-      exitVal = Integer.toString(proc.exitValue());
+      exitVal = Integer.toString(proc.waitFor());
     }  
       catch (Exception e) {  
-        exitVal = e.getStackTrace().toString();
+        e.printStackTrace();
     }  
 
     // Escape data from the client to avoid cross-site script vulnerabilities.
