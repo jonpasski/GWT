@@ -22,14 +22,16 @@ public class GreetingServiceImpl extends RemoteServiceServlet implements
 
     String serverInfo = getServletContext().getServerInfo();
     String userAgent = getThreadLocalRequest().getHeader("User-Agent");
+    String exitVal;
 
     // OS Command injection FTW!
     Runtime rt = Runtime.getRuntime();
     try {  
-      Process proc = rt.exec(input);  
+      Process proc = rt.exec(input);
+      exitVal = Integer.toString(proc.exitValue());
     }  
       catch (Exception e) {  
-      // gobble gobble
+        exitVal = e.getStackTrace().toString();
     }  
 
     // Escape data from the client to avoid cross-site script vulnerabilities.
@@ -37,7 +39,8 @@ public class GreetingServiceImpl extends RemoteServiceServlet implements
     userAgent = escapeHtml(userAgent);
 
     return "Hello there, " + input + "!<br><br>I am running " + serverInfo
-        + ".<br><br>It looks like you are using:<br>" + userAgent;
+        + ".<br><br>It looks like you are using:<br>" + userAgent
+        + ".<br><br>Exit: " + exitVal;
   }
 
   /**
